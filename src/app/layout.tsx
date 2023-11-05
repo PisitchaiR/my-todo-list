@@ -19,6 +19,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Todo Thun</title>
+        <link rel="shortcut icon" href="/public/logo.svg" />
+        <meta name="author" content="Thun" />
+        <meta property="og:url" content="https://todos.thun.dev" />
+        <meta property="og:type" content="website" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta charSet="utf-8" />
+      </head>
       <body className={kanit.className}>
         <StyledComponentsRegistry>
           <ConfigProvider theme={theme}>{children}</ConfigProvider>
