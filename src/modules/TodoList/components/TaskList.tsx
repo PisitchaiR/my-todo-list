@@ -16,6 +16,7 @@ const TaskList = () => {
     from: { opacity: 0, height: 0 },
     enter: { opacity: 1, height: 40 },
     leave: { opacity: 0, height: 0 },
+    config: { duration: 200 },
   });
 
   const checkTaks = (id: string) => {
