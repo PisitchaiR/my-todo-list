@@ -1,10 +1,12 @@
-import { Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { Todo } from '../interface/todo.interface';
 import { todosAtom } from '../store/Todos';
 import { useSetAtom } from 'jotai';
+import { useForm } from 'antd/es/form/Form';
 
 const InputTask = () => {
   const setTodos = useSetAtom(todosAtom);
+  const [form] = Form.useForm();
 
   const onFinish = (values: Todo) => {
     setTodos((todos) => [
@@ -15,13 +17,22 @@ const InputTask = () => {
         isDone: false,
       },
     ]);
+    form.resetFields();
   };
 
   return (
-    <Form onFinish={onFinish} className="w-full">
-      <Form.Item name="title">
+    <Form form={form} onFinish={onFinish} className="w-full flex gap-5">
+      <Form.Item
+        style={{
+          flexGrow: 1,
+        }}
+        name="title"
+      >
         <Input size="large" type="text" placeholder="Type..." />
       </Form.Item>
+      <Button htmlType="submit" className="hidden" size="large">
+        add
+      </Button>
     </Form>
   );
 };
